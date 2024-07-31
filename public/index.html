@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="script-src 'self' 'sha256-Vszew93QrHsxKy+yYNGrSIn41VCm+BZlLY3ED2XkQUA=' 'sha256-alz/f6tRWiXk8jKUvP+TG9GfYQYnq09+h+j664TE7Wo='; object-src 'self';">
+    <title>Todo App</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/overlay.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "todo-app": "/src/todo-app.js",
+                "input-form": "/src/components/input-form.js",
+                "todo-list": "/src/components/todo-list.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import { TodoApp } from 'todo-app';
+        import { InputForm } from 'input-form';
+        import { TodoList } from 'todo-list';
+    </script>
+</head>
+
+<body>
+    <todo-app card-width="672px" app-title="Todo App" class="d-flex container align-items-center justify-content-center bg-dark bg-gradient" style="min-height: 100vh; min-width: 100vw;">
+        <input-form id='input-form' slot="inputForm"></input-form>
+        <todo-list id='todo-list' class="mx-4 mb-2 mt-0" empty-list-message="all done for today" slot="todoList"></todo-list>
+    </todo-app>
+</body>
+
+</html>
